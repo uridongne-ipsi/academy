@@ -229,7 +229,7 @@ table.jp-tbl{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-n
     <h2 class="big">전문 논술 선생님이 없어도<br><em>수리논술 파이널반</em>을 열 수 있습니다</h2>
     <p class="lead">수능이 끝나고 논술 시험까지 남은 2~3주. 대학별 해설 자료는 학원 이름을 달고 학생마다 한 권씩, 답안 피드백은 첨삭과 재첨삭으로 맡겠습니다.</p>
     <div class="facts">
-      <div class="fact"><b>23개 대학</b><span>자연·의약학계 32종 완성</span></div>
+      <div class="fact"><b>24개 대학</b><span>자연·의약학계 33종 완성</span></div>
       <div class="fact"><b>학생별 PDF</b><span>학원명·학생 이름 인쇄</span></div>
       <div class="fact"><b>24시간</b><span>첨삭 회신 (보통 12시간)</span></div>
     </div>
@@ -347,7 +347,7 @@ table.jp-tbl{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-n
 <section>
   <div class="wrap">
     <div class="secno"><i>05</i><h2>지금 공급할 수 있는 파일</h2></div>
-    <p class="muted">23개 대학 32종 완성, 가천대 3종은 11월 3일 무렵 완성 예정입니다. 목록에 없는 대학이 필요하시면 말씀해 주세요.</p>
+    <p class="muted">24개 대학 33종 완성. 목록에 없는 대학이 필요하시면 말씀해 주세요.</p>
     <div class="files" id="files"></div>
   </div>
 </section>
@@ -717,14 +717,14 @@ table.jp-tbl{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-n
 </script>
 <script>
 const FILES=[
-["가톨릭대","의예·약학",35],["건국대","자연(수의 포함)",36],["경기대","수리논술",36],["경북대","자연",57],["경북대","의약학계",72],
+["가천대","의예·한의예·약학",94],["가톨릭대","의예·약학",35],["건국대","자연(수의 포함)",36],["경기대","수리논술",36],["경북대","자연",57],["경북대","의약학계",72],
 ["경희대","자연",37],["경희대","의약학계",40],["고려대","자연",42],["고려대(세종)","약학",52],["광운대","자연",70],
 ["덕성여대","자연·약학",53],["동국대","자연(약학 포함)",45],["부산대","자연",42],["부산대","의약학계",54],["서강대","자연",63],
 ["서울과기대","자연",44],["성균관대","자연(의예 포함)",58],["세종대","자연",48],["숙명여대","자연",36],["숙명여대","약학",39],
 ["숭실대","자연",29],["아주대","자연",69],["아주대","의학·약학",70],["이화여대","자연",45],["이화여대","의약학계",52],
 ["인하대","자연",48],["인하대","의예",49],["중앙대","자연",40],["중앙대","의약학계",43],["한국항공대","공학",56],
 ["한국항공대","이학",61],["한양대","자연(의예 포함)",52]];
-const SOON=[["가천대","의예"],["가천대","한의예"],["가천대","약학"]];
+const SOON=[];
 const box=document.getElementById('files');
 for(const [u,k,p] of FILES){const d=document.createElement('div');d.className='file';d.innerHTML='<span><b></b> <small></small></span><span class="pg"></span>';d.querySelector('b').textContent=u;d.querySelector('small').textContent=k;d.querySelector('.pg').textContent=p+'쪽';box.appendChild(d)}
 for(const [u,k] of SOON){const d=document.createElement('div');d.className='file soon';d.innerHTML='<span><b></b> <small></small></span><span class="pg">11/3 무렵</span>';d.querySelector('b').textContent=u;d.querySelector('small').textContent=k;box.appendChild(d)}
