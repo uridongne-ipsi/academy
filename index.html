@@ -152,6 +152,20 @@ footer{padding-block:28px 40px;font-size:.82rem;color:var(--sub)}
 .whybox{border:1.5px solid var(--rust);background:var(--rust-soft);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;font-size:.84rem}
 .whybox b{color:var(--rust)}
 /* jeongsi preview */
+:root{--up:#a3352b;--mid:#a57c0c;--safe:#2c6e5a}
+:root[data-theme="dark"]{--up:#ee9488;--mid:#e2c46a;--safe:#7fc7ae}
+.bars{display:inline-flex;gap:2px;vertical-align:-1px;white-space:nowrap}
+.bars i{display:block;width:9px;height:12px;border-radius:2px;border:1.5px solid currentColor;box-sizing:border-box}
+.bars.l1{color:var(--up)}.bars.l2{color:var(--mid)}.bars.l3,.bars.l4,.bars.l5{color:var(--safe)}
+.bars.l1 i:nth-child(-n+1),.bars.l2 i:nth-child(-n+2),.bars.l3 i:nth-child(-n+3),.bars.l4 i:nth-child(-n+4),.bars.l5 i:nth-child(-n+5){background:currentColor}
+.jp-score{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border:2px solid var(--ink);border-radius:8px;padding:8px 12px}
+.jp-score b{font-family:var(--f-display);font-size:1.6rem;font-variant-numeric:tabular-nums}
+.jp-score span{font-size:.8rem;color:var(--sub)}
+.jp-legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.76rem;color:var(--sub)}
+.jp-legend>span{display:inline-flex;align-items:center;gap:5px}
+.jp-rung .ct{font-size:.8rem;color:var(--sub);font-variant-numeric:tabular-nums;white-space:nowrap}
+.jp-fit{border-top:1px dashed var(--line);padding-top:6px;display:flex;flex-direction:column;gap:4px;font-size:.84rem}
+.jp-fit b{font-size:.78rem;color:var(--sub)}
 .jp{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
 .jp-top{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--paper);border-bottom:1px solid var(--line);font-weight:600;font-size:.9rem}
 .jp-body{padding:14px;display:flex;flex-direction:column;gap:12px;font-size:.9rem}
@@ -479,12 +493,14 @@ table.jp-tbl{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-n
       <div class="card">
         <span class="tag">수능 다음 날</span>
         <h3>가채점 페이지</h3>
-        <p class="muted">가채점 점수로 지원의 큰 틀을 잡는 페이지입니다.</p>
+        <p class="muted">남은 논술·면접을 보러 갈지 정하고, 가채점 점수로 지원의 큰 틀을 잡는 페이지입니다.</p>
         <ul class="clean">
-          <li>입시기관 예상 등급컷으로 바꾼 예상 점수표(범위)</li>
-          <li>원하는 라인과 지금 가능한 라인(대학 라인 단위)</li>
-          <li>성적표가 나왔을 때 세 가지 상황(좋게·예상대로·아쉽게)</li>
-          <li>본 상담 전까지 준비할 것</li>
+          <li>남은 논술·면접, 보러 갈지(정시로 갈 수 있는 라인과 남은 수시 대학을 나란히)</li>
+          <li>입시기관 세 곳 예상 등급컷으로 바꾼 예상 점수표(범위)와 과목별로 몇 점에 라인이 움직이는지</li>
+          <li>희망 분야별로 원하는 라인과 지금 가능한 라인, 가·나·다군으로 나눠 보기</li>
+          <li>학생에게 맞춘 보기 — 지역인재·영어 등급·과목별 점수 구조처럼 그 학생에게 해당되는 것만</li>
+          <li>작년 한 해만 보면 판단이 달라지는 학과 따로 표시</li>
+          <li>성적표가 나왔을 때 세 가지 상황(좋게·예상대로·아쉽게)과 본 상담 전까지 준비할 것</li>
         </ul>
       </div>
       <div class="card">
@@ -492,10 +508,11 @@ table.jp-tbl{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-n
         <h3>본 상담 페이지</h3>
         <p class="muted">확정 성적으로 가·나·다군을 정하는 페이지입니다.</p>
         <ul class="clean">
-          <li>후보 대학 환산점수와 작년 합격선(70% 컷)·진학사 칸 비교</li>
-          <li>대학별로 모아 온 여러 해 입결(모집인원·이월·경쟁률·추가합격 흐름)로 칸 수를 다시 판단하고, 학생마다 판단 근거를 적어 드림</li>
-          <li>안정·적정·상향을 섞은 가·나·다군 조합 여러 개와 각 조합의 장단점</li>
-          <li>원서 마감까지 이월 인원·경쟁률을 같은 페이지에 이어서 정리</li>
+          <li>후보 학과 환산점수와 작년 합격선(70% 지점)의 차이를 「국어·수학 표준점수로 몇 점」으로 바꿔 비교</li>
+          <li>작년 마지막 합격 등수(최종 인원 + 추가 합격)와 학생의 진학사 등수를 나란히 비교</li>
+          <li>세 해 합격선 흐름(꾸준·출렁)과 올해 달라진 점(군 이동·뽑는 방법·모집인원), 군마다 추가 합격이 도는 정도로 판단을 다시 보고, 학과마다 판단 이유를 적어 드림</li>
+          <li>안정·적정·상향을 섞은 가·나·다군 조합안 세 가지와 각 조합의 장단점</li>
+          <li>원서 마감까지: 최종 지원 세 곳 일정, 원서 접수 전 점검, 이월 인원·경쟁률, 날짜별 진학사 기록</li>
         </ul>
       </div>
       <div class="card">
@@ -540,25 +557,34 @@ table.jp-tbl{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-n
             </ol>
 
             <div class="jp-block">
-              <div class="jp-bh"><span>가채점</span>원하는 라인과 지금 가능한 라인</div>
-              <div class="jp-rung"><span class="lv">한 단계 위</span><span>A대 소프트웨어학부 <small>· 희망 1순위</small></span><span class="chip c-up">부족</span></div>
-              <div class="jp-rung"><span class="lv">반 단계 위</span><span>D대 컴퓨터공학과 <small>· 희망 2순위</small></span><span class="chip c-mid">아슬아슬</span></div>
-              <div class="jp-rung here"><span class="lv">지금 점수 중심</span><span>B대 전자공학과 · G대 소프트웨어학과</span><span class="chip c-safe">가능</span></div>
-              <div class="jp-rung"><span class="lv">반 단계 아래</span><span>F대 정보통신공학과 · H대 컴퓨터공학과</span><span class="chip c-safe">여유</span></div>
+              <div class="jp-bh"><span>가채점</span>희망 분야별 라인 · 컴퓨터·전자</div>
+              <div class="jp-score"><b>89.1</b><span>내 국수탐 평균 백분위(예상) · 기관 세 곳 예상 범위 88.3~89.9</span></div>
+              <div class="jp-legend"><span><span class="bars l5" role="img" aria-label="안정" title="안정"><i></i><i></i><i></i><i></i><i></i></span> 안정</span><span><span class="bars l4" role="img" aria-label="여유" title="여유"><i></i><i></i><i></i><i></i><i></i></span> 여유</span><span><span class="bars l3" role="img" aria-label="가능" title="가능"><i></i><i></i><i></i><i></i><i></i></span> 가능</span><span><span class="bars l2" role="img" aria-label="아슬아슬" title="아슬아슬"><i></i><i></i><i></i><i></i><i></i></span> 아슬아슬</span><span><span class="bars l1" role="img" aria-label="부족" title="부족"><i></i><i></i><i></i><i></i><i></i></span> 부족</span><span>칠한 칸이 많을수록 지금 점수로 여유 있는 곳</span></div>
+              <div class="jp-rung"><span class="lv"><span class="bars l1" role="img" aria-label="부족" title="부족"><i></i><i></i><i></i><i></i><i></i></span></span><span>A대 소프트웨어학부 <small>· 희망 1순위</small></span><span class="ct">91.0 (−1.9)</span></div>
+              <div class="jp-rung"><span class="lv"><span class="bars l2" role="img" aria-label="아슬아슬" title="아슬아슬"><i></i><i></i><i></i><i></i><i></i></span></span><span>D대 컴퓨터공학과 <small>· 희망 2순위</small></span><span class="ct">89.8 (−0.7)</span></div>
+              <div class="jp-rung here"><span class="lv"><span class="bars l3" role="img" aria-label="가능" title="가능"><i></i><i></i><i></i><i></i><i></i></span></span><span>B대 전자공학과 · G대 소프트웨어학과</span><span class="ct">89.3 · 88.9</span></div>
+              <div class="jp-rung"><span class="lv"><span class="bars l4" role="img" aria-label="여유" title="여유"><i></i><i></i><i></i><i></i><i></i></span></span><span>F대 정보통신공학과</span><span class="ct">87.5 (+1.6)</span></div>
+              <div class="jp-rung"><span class="lv"><span class="bars l5" role="img" aria-label="안정" title="안정"><i></i><i></i><i></i><i></i><i></i></span></span><span>H대 컴퓨터공학과</span><span class="ct">86.0 (+3.1)</span></div>
+              <p class="muted" style="font-size:.78rem;margin:0">학과 옆 숫자는 세 해 합격선 평균(괄호는 내 점수와 차이)입니다.</p>
+              <div class="jp-fit"><b>별님에게 맞춘 보기 (해당되는 것만)</b>
+                <span>· 남은 수시와 비교 — 남은 E대 논술은 정시로 갈 수 있는 라인보다 위라 응시하는 쪽으로 봅니다.</span>
+                <span>· 영어 2등급 — 영어 감점이 큰 대학은 같은 점수라도 칸 하나가 내려갑니다.</span>
+                <span>· 점수 구조 — 수학 비중이 큰 D대는 칸보다 조금 낫게 봅니다.</span>
+              </div>
             </div>
 
             <div class="jp-block">
               <div class="jp-bh"><span>본 상담</span>후보 대학 환산점수 비교 (일부)</div>
               <div class="tw"><table class="jp-tbl">
-                <thead><tr><th>모집단위</th><th class="n">내 환산</th><th class="n">작년 70% 컷</th><th class="n">차이</th><th class="n">진학사</th><th>판단</th><th>판단 근거 <span class="lockt">학생 페이지에서 공개</span></th></tr></thead>
+                <thead><tr><th>판단 · 모집단위</th><th class="n">작년 70% 지점과<br>국·수 표준점수 차이</th><th>진학사 등수<br>(작년 마지노선과)</th><th>세 해 합격선</th><th>판단 이유 <span class="lockt">학생 페이지에서 공개</span></th></tr></thead>
                 <tbody>
-                  <tr><td>나 · D대 컴퓨터공학과</td><td class="n">947.1</td><td class="n">949.8</td><td class="n">−2.7</td><td class="n">3칸</td><td><span class="chip c-up">상향</span></td><td class="bl" aria-hidden="true">최근 몇 해 추가합격이 모집인원보다 많이 돌았고 올해 이월이 더해져</td></tr>
-                  <tr><td>가 · B대 전자공학과</td><td class="n">640.2</td><td class="n">638.0</td><td class="n">+2.2</td><td class="n">5칸</td><td><span class="chip c-mid">적정</span></td><td class="bl" aria-hidden="true">작년 컷은 여러 해 중 높았던 해이고 올해 모집인원이 줄어</td></tr>
-                  <tr><td>다 · H대 컴퓨터공학과</td><td class="n">603.0</td><td class="n">595.7</td><td class="n">+7.3</td><td class="n">8칸</td><td><span class="chip c-safe">안정</span></td><td class="bl" aria-hidden="true">다군이라 추가합격이 많이 돌아 안정으로</td></tr>
+                  <tr><td><span class="chip c-up">상향</span> 나 · D대 컴퓨터공학과</td><td class="n">−1.2</td><td>4칸 · 58등<br><small>마지노선 8등 밖</small></td><td>꾸준</td><td class="bl" aria-hidden="true">70% 지점 바로 아래(오차 안)이고 진학사 등수도 작년 마지노선보다 조금 뒤</td></tr>
+                  <tr><td><span class="chip c-mid">적정</span> 가 · B대 전자공학과</td><td class="n">+0.8</td><td>5칸 · 31등<br><small>마지노선 9등 안쪽</small></td><td>출렁</td><td class="bl" aria-hidden="true">작년 컷은 여러 해 중 높았던 해이고 올해 모집인원이 줄어</td></tr>
+                  <tr><td><span class="chip c-safe">안정</span> 다 · H대 컴퓨터공학과</td><td class="n">+3.4</td><td>8칸 · 120등<br><small>마지노선 한참 안쪽</small></td><td>꾸준</td><td class="bl" aria-hidden="true">다군이라 추가 합격이 모집인원의 두 배 넘게 돌아</td></tr>
                 </tbody>
               </table></div>
               <p class="swipe">표는 옆으로 밀어서 볼 수 있습니다</p>
-              <div class="whybox"><b>진학사 칸과 작년 컷만으로 정하지 않습니다</b><span>칸 수와 작년 70% 컷은 학생도 직접 볼 수 있는 숫자입니다. 본 상담 페이지는 여기에 대학별로 모아 온 여러 해 입결(모집인원·이월·경쟁률·추가합격 흐름)과 올해 바뀐 점을 더해 칸 수를 다시 판단하고, 그 근거를 학생마다 한 줄씩 적어 드립니다. 위 표의 흐린 칸이 그 자리입니다.</span></div>
+              <div class="whybox"><b>진학사 칸과 작년 컷만으로 정하지 않습니다</b><span>대학마다 만점이 달라, 작년 70% 지점과의 차이를 국어·수학 표준점수 몇 점으로 바꿔 봅니다. 70% 지점은 마지막 합격자가 아니라서, 작년에 마지막으로 합격한 등수(최종 인원 + 추가 합격)와 학생의 진학사 등수도 함께 놓습니다. 여기에 세 해 합격선 흐름, 올해 바뀐 점(군 이동·뽑는 방법·모집인원), 군마다 추가 합격이 도는 정도를 더해 판단을 다시 보고, 그 이유를 학과마다 적어 드립니다. 위 표의 흐린 칸이 그 자리입니다.</span></div>
             </div>
 
             <div class="jp-block">
@@ -571,9 +597,11 @@ table.jp-tbl{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-n
             </div>
 
             <div class="jp-block">
-              <div class="jp-bh"><span>원서 마감까지</span>이월·경쟁률</div>
+              <div class="jp-bh"><span>원서 마감까지</span>일정 · 점검 · 이월 · 경쟁률</div>
+              <div class="jp-log"><b>최종 지원 세 곳 일정</b><span>B대·D대·H대의 원서 마감 시각, 서류 제출, 최초 합격 발표를 2027 모집요강에서 확인해 한 곳에 모았습니다.</span></div>
+              <div class="jp-log"><b>원서 접수 전 점검</b><span>남은 수시 결과(추가 합격 포함), 군마다 한 곳, 모집단위·전형 이름을 접수 전에 한 번 더 확인합니다.</span></div>
               <div class="jp-log"><b>이월 인원 발표</b><span>D대 컴퓨터공학과 수시 이월 4명으로 정시 인원이 늘었습니다.</span></div>
-              <div class="jp-log"><b>접수 마지막 날 오전</b><span>D대 경쟁률 3.9 대 1, 작년 같은 시각(4.2 대 1)보다 낮아 그대로 지원합니다.</span></div>
+              <div class="jp-log"><b>접수 마지막 날</b><span>D대 마감 직전 경쟁률 1.8 대 1. 작년에는 마감 직전보다 최종 경쟁률이 2~3배로 늘어난 학과가 많아, 숫자가 낮다고 안심하지 않습니다.</span></div>
             </div>
           </div>
         </div>
@@ -618,7 +646,7 @@ table.jp-tbl{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-n
       <li><div><b>가능한 인원과 완성 시각을 먼저 답드립니다.</b> <span class="muted">몇 명쯤 신청할지 알려 주시면 언제까지 만들 수 있는지 답드립니다. 학생들께 안내하시기 전에 이 답을 먼저 받아 보세요. 입금은 처음 학생들을 보내실 때 한 번에 하시면 되고, 입금이 확인되면 시작합니다.</span></div></li>
       <li><div><b>가채점 페이지: 질문지를 받고 24시간 안에 완성합니다.</b> <span class="muted">입시기관 예상 등급컷이 나오는 수능 다음 날(11월 20일)부터 만듭니다.</span></div></li>
       <li><div><b>본 상담 페이지: 성적 발표 뒤 48시간 안에 완성합니다.</b> <span class="muted">성적 발표(12월 11일) 뒤 본 상담 질문지를 학생에게 보내고, 받은 답(성적표·진학사 모의지원 화면 캡처)을 그대로 전달해 주세요. 전달해 주신 학생이 곧 본 상담 주문입니다. 보통은 하루 안에 되지만, 발표 직후 몰릴 때를 생각해 48시간으로 안내드립니다.</span></div></li>
-      <li><div><b>원서 마감까지 페이지를 이어서 고칩니다.</b> <span class="muted">대학의 이월 인원이 발표되면, 그리고 원서 접수 기간(1월 4~7일)에는 하루 한 번 경쟁률을 학생 페이지에 정리합니다.</span></div></li>
+      <li><div><b>원서 마감까지 페이지를 이어서 고칩니다.</b> <span class="muted">최종 지원 세 곳이 정해지면 그 대학들의 원서 마감·서류·합격 발표 일정과 원서 접수 전 점검을 넣습니다. 학생이 진학사 화면을 다시 보내면 날짜별로 기록하고, 대학의 이월 인원이 발표되면, 그리고 원서 접수 기간(1월 4~7일)에는 하루 한 번 경쟁률을 학생 페이지에 정리합니다.</span></div></li>
     </ol>
     <div class="rules">
       <div class="row"><b>상담</b><span>학원 선생님이 학생 페이지를 학생·학부모와 함께 보며 진행합니다.</span></div>
